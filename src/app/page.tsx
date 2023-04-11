@@ -1,8 +1,8 @@
 import { use } from 'react';
-import Tributton from './components/Tributton';
+import Tributton from './components/tributton';
 
 function sleep() {
-  return new Promise((resolve) => setTimeout(resolve, 5000));
+  return new Promise((resolve) => setTimeout(resolve, 1000));
 }
 
 async function mock_rest() {

@@ -1,0 +1,59 @@
+.hamburger-menu {
+  $square-root-of-two: 1.4142135623730951;
+  $bar-width: 60px;
+  $bar-height: 8px;
+  $gap: 6px;
+  $foreground: #333;
+  $background: white;
+  $animation-timing: 200ms ease-in-out;
+  $hamburger-height: $bar-height * 3 + $gap * 2;
+  $x-width: $hamburger-height * $square-root-of-two;
+
+  &::before,
+  &::after,
+  input {
+    content: "";
+    width: $bar-width;
+    height: $bar-height;
+    background-color: $foreground;
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity $animation-timing, width $animation-timing,
+      rotate $animation-timing, translate $animation-timing,
+      background-color $animation-timing;
+  }
+
+  &:has(input:checked) {
+    $foreground: white;
+    $background: #333;
+  }
+  &:has(input:focus-visible)::before,
+  &:has(input:focus-visible)::after {
+    border: 1px solid $background;
+    box-shadow: 0 0 0 1px $foreground;
+  }
+
+  input {
+    &:focus-visible {
+      border: 1px solid $background;
+      box-shadow: 0 0 0 1px $foreground;
+    }
+    
+    &:checked {
+      opacity: 0;
+      width: 0;
+    }
+  }
+
+  &:has(input:checked)::before {
+    rotate: 45deg;
+    width: $x-width;
+    translate: 0 $bar-height / -2;
+  }
+
+  &:has(input:checked)::after {
+    rotate: -45deg;
+    width: $x-width;
+    translate: 0 $bar-height / 2;
+  }
+}

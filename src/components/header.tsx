@@ -1,5 +1,6 @@
 import NavLink from '@/components/navlink';
 import Logo from './logo';
+import HamburderToggle from './hamburder/toggle';
 
 type HeaderPropsType = {
   title: string;
@@ -12,7 +13,10 @@ export default function Header({ title }: HeaderPropsType) {
         <Logo />
         <span className="flex text-2xl font-bold ml-7">{title}</span>
       </div>
-      <nav className="flex mt-2">
+      <div className="sm:invisible">
+        <HamburderToggle />
+      </div>
+      <nav className="flex mt-2 invisible md:visible">
         <ul className="flex flex-row space-x-8">
           <li>
             <NavLink href="/">Home</NavLink>
