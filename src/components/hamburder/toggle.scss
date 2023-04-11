@@ -1,8 +1,8 @@
 .hamburger-menu {
   $square-root-of-two: 1.4142135623730951;
-  $bar-width: 60px;
+  $bar-width: 32px;
   $bar-height: 8px;
-  $gap: 6px;
+  $gap: 4px;
   $foreground: #333;
   $background: white;
   $animation-timing: 200ms ease-in-out;
@@ -26,6 +26,17 @@
   &:has(input:checked) {
     $foreground: white;
     $background: #333;
+
+    &::before {
+      rotate: 45deg;
+      width: $x-width;
+      translate: 0 $bar-height / -2;
+    }
+    &::after {
+      rotate: -45deg;
+      width: $x-width;
+      translate: 0 $bar-height / 2;
+    }
   }
   &:has(input:focus-visible)::before,
   &:has(input:focus-visible)::after {
@@ -43,17 +54,5 @@
       opacity: 0;
       width: 0;
     }
-  }
-
-  &:has(input:checked)::before {
-    rotate: 45deg;
-    width: $x-width;
-    translate: 0 $bar-height / -2;
-  }
-
-  &:has(input:checked)::after {
-    rotate: -45deg;
-    width: $x-width;
-    translate: 0 $bar-height / 2;
   }
 }
