@@ -13,7 +13,7 @@ export default function Header({ title }: HeaderPropsType) {
         <Logo />
         <span className="flex text-2xl font-bold ml-7">{title}</span>
       </div>
-      <div className="sm:invisible">
+      <div className="">
         <HamburderToggle />
       </div>
       <nav className="flex mt-2 invisible md:visible">
