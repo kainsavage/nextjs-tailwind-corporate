@@ -1,6 +1,6 @@
 import NavLink from '@/components/navlink';
 import Logo from './logo';
-import HamburderToggle from './hamburder/toggle';
+import Hamburder from './hamburder/hamburder';
 
 type HeaderPropsType = {
   title: string;
@@ -8,15 +8,20 @@ type HeaderPropsType = {
 
 export default function Header({ title }: HeaderPropsType) {
   return (
-    <div className="flex flex-row justify-between my-8">
+    <div className="flex flex-col sm:flex-row sm:justify-between">
+      <Hamburder className="sm:hidden aboslute">
+        <nav>
+          <div className="z-20 relative">This</div>
+          <div>Is</div>
+          <div>The</div>
+          <div>Sidebar</div>
+        </nav>
+      </Hamburder>
       <div className="flex mr-4 mt-2">
         <Logo />
         <span className="flex text-2xl font-bold ml-7">{title}</span>
       </div>
-      <div className="">
-        <HamburderToggle />
-      </div>
-      <nav className="flex mt-2 invisible md:visible">
+      <nav className="flex mt-2 hidden">
         <ul className="flex flex-row space-x-8">
           <li>
             <NavLink href="/">Home</NavLink>
@@ -35,9 +40,9 @@ export default function Header({ title }: HeaderPropsType) {
           </li>
         </ul>
       </nav>
-      <button className="px-12 py-2 bg-black text-white rounded-lg">
+      {/* <button className="px-12 py-2 bg-black text-white rounded-lg">
         Contact Us
-      </button>
+      </button> */}
     </div>
   );
 }

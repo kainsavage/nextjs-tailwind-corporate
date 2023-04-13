@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col max-w-screen-2xl mx-auto">
+      <body className="flex flex-col md:max-w-screen-2xl md:mx-auto">
         <Header title="Corporate" />
         <main>{children}</main>
         <Footer />

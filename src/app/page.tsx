@@ -15,7 +15,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col flex-grow bg-[url('/shaking-hands.jpg')] bg-no-repeat bg-cover rounded-3xl">
+      Test
+      {/* <div className="flex flex-col flex-grow bg-[url('/shaking-hands.jpg')] bg-no-repeat bg-cover rounded-3xl">
         <div className="flex text-black text-center text-8xl font-bold mx-auto mt-12 mb-10">
           Trust us with
           <br />
@@ -29,8 +30,8 @@ export default function Home() {
         <div className="flex text-black text-center text-4xl font-bold mx-auto mt-12">
           How Can We Help?
         </div>
-        <Tributton className="mt-12" />
-      </div>
+        {/* <Tributton className="mt-12" /> */}
+      {/* </div> */}
     </>
   );
 }

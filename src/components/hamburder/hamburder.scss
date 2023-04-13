@@ -1,7 +1,8 @@
 .hamburger-menu {
+  max-width: var(--bar-width);
   gap: var(--gap);
-  --hambuger-height: calc(var(--bar-height) * 3 + var(--gap) * 2);
-  --x-width: calc(var(--hambuger-height) * var(--square-root-of-two));
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--gap) * 2);
+  --x-width: calc(var(--hamburger-height) * var(--square-root-of-two));
 
   &::before,
   &::after,
@@ -15,6 +16,17 @@
     transition: opacity var(--animation-timing), width var(--animation-timing),
       rotate var(--animation-timing), translate var(--animation-timing),
       background-color var(--animation-timing);
+  }
+
+  &.checked {
+    &::before {
+      background-color: var(--background-color);
+      color: var(--foreground-color);
+    }
+    &::after {
+      background-color: var(--background-color);
+      color: var(--foreground-color);
+    }
   }
 
   &.checked {
@@ -35,5 +47,19 @@
       opacity: 0;
       width: 0;
     }
+  }
+}
+
+.sidebar {
+  transition: translate var(--animation-timing);
+  translate: -100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+  width: 100vw;
+  min-height: 100vh;
+
+  &.checked {
+    translate: 0;
   }
 }
