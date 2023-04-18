@@ -9,7 +9,7 @@ type HamburderTogglePropsType = {
   foregroundColor?: string;
   backgroundColor?: string;
   className?: string | string[];
-  children: React.ReactNode;
+  onToggle?: (checked: boolean) => void;
 };
 
 const SquareRootOfTwo = Math.sqrt(2);
@@ -21,12 +21,9 @@ export default function HamburderToggle({
   foregroundColor = '#333',
   backgroundColor = '#fff',
   className,
-  children,
+  onToggle,
 }: HamburderTogglePropsType) {
   const [checked, setChecked] = useState(false);
-  const hamburgerHeight = 8 * 3 + 4 * 2;
-  const xWidth = hamburgerHeight * SquareRootOfTwo;
-  console.log(xWidth);
 
   return (
     <div
@@ -41,9 +38,6 @@ export default function HamburderToggle({
       }}
       className={`${className ? className : ''}`}
     >
-      <aside className={`sidebar ${checked ? 'checked' : ''}`}>
-        {children}
-      </aside>
       <label
         className={`hamburger-menu flex flex-col w-max absolute top-2 right-3 z-10 cursor-pointer ${
           checked ? 'checked' : ''
@@ -55,7 +49,12 @@ export default function HamburderToggle({
             checked ? 'checked' : ''
           }`}
           checked={checked}
-          onChange={() => setChecked(!checked)}
+          onChange={() => {
+            if (onToggle) {
+              onToggle(!checked);
+            }
+            setChecked(!checked);
+          }}
         />
       </label>
     </div>

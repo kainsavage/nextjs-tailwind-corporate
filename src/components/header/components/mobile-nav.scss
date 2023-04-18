@@ -1,0 +1,14 @@
+.sidebar {
+  transition: translate var(--animation-timing), height var(--animation-timing);
+  translate: 100%;
+  padding: 0.5rem 1rem;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+  width: 100vw;
+  height: 0;
+
+  &.checked {
+    translate: 0;
+    height: 100vh;
+  }
+}
